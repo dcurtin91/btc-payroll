@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import Login from './Login';
+import Portal from './Portal';
 import './App.css';
 
 function App() {
