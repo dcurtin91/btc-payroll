@@ -7,7 +7,7 @@ const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" component={EmployeeList} exact />
+        <Route path="/" element={<EmployeeList />}exact />
       </Routes>
     </Router>
   );
