@@ -1,16 +1,16 @@
-import logo from './logo.svg';
-import Login from './Login';
-import Portal from './Portal';
-import './App.css';
+// src/App.js
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import EmployeeList from './Employee';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        The Man was eating
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" component={EmployeeList} exact />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
