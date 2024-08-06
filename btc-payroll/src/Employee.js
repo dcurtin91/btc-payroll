@@ -7,7 +7,7 @@ const EmployeeList = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchEmployees = async () => {
+    const FetchEmployees = async () => {
       try {
         const data = await getEmployees();
         setEmployees(data);
@@ -18,7 +18,7 @@ const EmployeeList = () => {
       }
     };
 //comment???//
-    fetchEmployees();
+    FetchEmployees();
   }, []);
 
   if (loading) {
