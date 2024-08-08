@@ -1,37 +1,38 @@
-// src/components/EmployeeList.js
+// src/EmployeeList.js
 import React, { useEffect, useState } from 'react';
-import { getEmployees } from './service';
+import axios from 'axios';
 
 const EmployeeList = () => {
   const [employees, setEmployees] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
 
   useEffect(() => {
-    const FetchEmployees = async () => {
+    const fetchEmployees = async () => {
       try {
-        const data = await getEmployees();
-        setEmployees(data);
-      } catch (error) {
-        console.error('Error fetching employees:', error);
-      } finally {
-        setLoading(false);
+        const response = await axios.get('http://localhost:3000/employees');
+        setEmployees(response.data);
+      } catch (err) {
+        setError('Error fetching employees');
+        console.error(err);
       }
     };
-//comment???//
-    FetchEmployees();
+
+    fetchEmployees();
   }, []);
 
-  if (loading) {
-    return <div>Loading...</div>;
+  if (error) {
+    return <div>{error}</div>;
   }
 
   return (
     <div>
-      <h1>Employee List</h1>
-      
+      <h2>Employee List</h2>
       <ul>
         {employees.map((employee) => (
-          <li key={employee.id}>{employee.name}</li>
+          <li key={employee.id}>
+            <strong>Name:</strong> {employee.name}<br />
+            <strong>Email:</strong> {employee.email}
+          </li>
         ))}
       </ul>
     </div>
