@@ -1,11 +1,12 @@
 import { Auth0Provider, useAuth0 } from '@auth0/auth0-react';
+require('dotenv').config();
 
 const Login = () => {
     return (
         <Auth0Provider
         domain=''
-        clientId=''
-        redirectUri='david-curtin.com'>
+        clientId=`${process.env.CLIENT_ID}`
+        redirectUri='https://david-curtin.com/'>
             <Authenticated />
         </Auth0Provider>
     )
