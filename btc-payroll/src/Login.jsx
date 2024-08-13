@@ -5,7 +5,7 @@ const Login = () => {
     return (
         <Auth0Provider
         domain=''
-        clientId=`${process.env.CLIENT_ID}`
+        clientId='xAzQPIrXhjeLUzvJnnTrLoLJ-WAadpGxLHAjAzqFlfo'
         redirectUri='https://david-curtin.com/'>
             <Authenticated />
         </Auth0Provider>
